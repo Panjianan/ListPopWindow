@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="style1">
+        <item name="popBackgroundColor">@color/white</item>
+        <item name="popPressedBackgroundColor">@color/pressed_background_cover_color</item>
+        <item name="popItemWidth">120dp</item>
+        <item name="popItemHeight">30dp</item>
+        <item name="popItemReversalOffY">0.9</item>
+        <item name="popCornerRadius">5dp</item>
+        <item name="popItemPaddingLeft">15dp</item>
+        <item name="popItemPaddingRight">15dp</item>
+        <item name="popTextSize">12sp</item>
+        <item name="popTextColor">#343434</item>
+        <item name="popItemGravity">center_vertical</item>
+        <item name="popTextImageMargin">10dp</item>
+        <item name="popIconSize">20dp</item>
+        <item name="popIconTintColor">#777777</item>
+        <item name="popFocus">true</item>
+        <item name="popIsOutside">true</item>
+        <item name="popBgShade">true</item>
+        <item name="popGravity">right</item>
+        <item name="popOffX">0px</item>
+        <item name="popOffY">0px</item>
+        <item name="popArrowContentOffX">-0dp</item>
+        <item name="popMinMarginLeft">15dp</item>
+        <item name="popMinMarginRight">15dp</item>
+        <item name="popUnitAutoAdaptive">true</item>
+        <item name="popDividerColor">@color/list_item_divider_color</item>
+        <item name="popDividerMarginLeft">15dp</item>
+        <item name="popDividerMarginRight">0px</item>
+        <item name="popDividerHeight">1dp</item>
+    </style>
+
+    <!-- 右上角menu的popWindow样式 -->
+    <style name="style2">
+        <item name="popBackgroundColor">#CC37363a</item>
+        <item name="popPressedBackgroundColor">#F237363a</item>
+        <item name="popItemWidth">150dp</item>
+        <item name="popItemHeight">50dp</item>
+        <item name="popItemReversalOffY">0.8</item>
+        <item name="popCornerRadius">5dp</item>
+        <item name="popItemPaddingLeft">20dp</item>
+        <item name="popItemPaddingRight">20dp</item>
+        <item name="popTextSize">15sp</item>
+        <item name="popTextColor">@color/white</item>
+        <item name="popItemGravity">center</item>
+        <item name="popTextImageMargin">14dp</item>
+        <item name="popIconSize">22dp</item>
+        <item name="popFocus">true</item>
+        <item name="popIsOutside">true</item>
+        <item name="popBgShade">false</item>
+        <item name="popGravity">right</item>
+        <item name="popOffX">0dp</item>
+        <item name="popOffY">5dp</item>
+        <item name="popArrowContentOffX">10dp</item>
+        <item name="popMinMarginLeft">12dp</item>
+        <item name="popMinMarginRight">12dp</item>
+        <item name="popUnitAutoAdaptive">true</item>
+        <item name="popDividerColor">@color/text_color_sub_content</item>
+        <item name="popDividerMarginLeft">0px</item>
+        <item name="popDividerMarginRight">0px</item>
+        <item name="popDividerHeight">1dp</item>
+    </style>
+
+</resources>

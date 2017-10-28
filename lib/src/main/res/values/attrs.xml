@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 列表类型的popWindow -->
+    <declare-styleable name="ListPopWindow">
+        <!-- 整个pop的背景色 -->
+        <attr name="popBackgroundColor" format="color" />
+        <!-- 按压状态下的背景色 -->
+        <attr name="popPressedBackgroundColor" format="color" />
+        <!-- 其实就是整个pop的宽度了 -->
+        <attr name="popItemWidth" format="dimension" />
+        <!-- 每个item的高度 -->
+        <attr name="popItemHeight" format="dimension" />
+        <!-- pop原本是在目标view的下面的，这个表示的是pop的底部到达屏幕的多少比例后自动变到目标view的上方 -->
+        <attr name="popItemReversalOffY" format="float" />
+        <!-- pop四个角的圆角半径 -->
+        <attr name="popCornerRadius" format="dimension" />
+        <!-- 每个item的左内边距 -->
+        <attr name="popItemPaddingLeft" format="dimension" />
+        <!-- 每个item的右内边距 -->
+        <attr name="popItemPaddingRight" format="dimension" />
+        <!-- 每个item的字体大小 -->
+        <attr name="popTextSize" format="dimension" />
+        <!-- 每个item的字体颜色 -->
+        <attr name="popTextColor" format="color" />
+        <!-- item内容的Gravity，对齐方式 -->
+        <attr name="popItemGravity">
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30" />
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50" />
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03" />
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05" />
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01" />
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10" />
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11" />
+            <!-- Push object to the beginning of its container, not changing its size. -->
+            <flag name="start" value="0x00800003" />
+            <!-- Push object to the end of its container, not changing its size. -->
+            <flag name="end" value="0x00800005" />
+        </attr>
+        <!-- item图标和文字的边距 -->
+        <attr name="popTextImageMargin" format="dimension" />
+        <!-- item图标的大小 -->
+        <attr name="popIconSize" format="dimension" />
+        <!-- 设置pop外的地方是否可以点击 -->
+        <attr name="popFocus" format="boolean" />
+        <!-- 设置点击pop外的地方是否关闭pop -->
+        <attr name="popIsOutside" format="boolean" />
+        <!-- 设置外部是否右阴影遮罩 -->
+        <attr name="popBgShade" format="boolean" />
+        <!-- 忘了干嘛的 -->
+        <attr name="popGravity">
+            <flag name="left" value="1" />
+            <flag name="center" value="2" />
+            <flag name="right" value="3" />
+        </attr>
+        <!-- 整个pop在x轴上的偏移（负数往左，正数往右） -->
+        <attr name="popOffX" format="dimension" />
+        <!-- 整个pop在y轴上的偏移（负数往上，正数往下） -->
+        <attr name="popOffY" format="dimension" />
+        <!-- 箭头和底下部分的偏移（负数往左，正数往右） -->
+        <attr name="popArrowContentOffX" format="dimension" />
+        <!-- 设置整个pop的最小左外边距 -->
+        <attr name="popMinMarginLeft" format="dimension" />
+        <!-- 设置整个pop的最小右外边距 -->
+        <attr name="popMinMarginRight" format="dimension" />
+        <!-- 没用的（本来是搭配Auto框架的） -->
+        <attr name="popUnitAutoAdaptive" format="boolean" />
+        <!-- 分割线的颜色 -->
+        <attr name="popDividerColor" format="color" />
+        <!-- 分割线的左外边距 -->
+        <attr name="popDividerMarginLeft" format="dimension" />
+        <!-- 分割线的右外边距 -->
+        <attr name="popDividerMarginRight" format="dimension" />
+        <!-- 分割线的高度 -->
+        <attr name="popDividerHeight" format="dimension" />
+        <!-- 图标的tint(不会的自行百度) -->
+        <attr name="popIconTintColor" format="color" />
+
+    </declare-styleable>
+
+</resources>
