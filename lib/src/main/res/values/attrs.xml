@@ -69,8 +69,6 @@
         <attr name="popMinMarginLeft" format="dimension" />
         <!-- 设置整个pop的最小右外边距 -->
         <attr name="popMinMarginRight" format="dimension" />
-        <!-- 没用的（本来是搭配Auto框架的） -->
-        <attr name="popUnitAutoAdaptive" format="boolean" />
         <!-- 分割线的颜色 -->
         <attr name="popDividerColor" format="color" />
         <!-- 分割线的左外边距 -->

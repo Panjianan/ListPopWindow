@@ -1,8 +1,7 @@
 package com.tsubasa.example
 
-import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,13 +12,13 @@ import com.tsubasa.listpopwindow.ListPopWindow
 
 class MainActivity : AppCompatActivity() {
 
-    var styleIes: Int = R.style.style1
+    var styleIes: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<View>(R.id.btn_style1).setOnClickListener { styleIes = R.style.style1 }
+        findViewById<View>(R.id.btn_style1).setOnClickListener { styleIes = null }
         findViewById<View>(R.id.btn_style2).setOnClickListener { styleIes = R.style.style2 }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
@@ -31,35 +30,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-                holder.btn1.setOnClickListener {
+                val onClick = View.OnClickListener {
                     ListPopWindow.Builder(it)
                             .addMenuItem(R.drawable.ic_ignore, "item1") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
                             .addMenuItem(R.drawable.ic_error_1, "item2") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
                             .addMenuItem(R.drawable.ic_waring, "item3") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .withStyle(styleIes)
+                            .apply {
+                                styleIes?.let { withStyle(it) }
+                            }
                             .build()
                             .show()
                 }
-
-                holder.btn2.setOnClickListener {
-                    ListPopWindow.Builder(it)
-                            .addMenuItem(R.drawable.ic_ignore, "item1") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .addMenuItem(R.drawable.ic_error_1, "item2") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .addMenuItem(R.drawable.ic_waring, "item3") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .withStyle(styleIes)
-                            .build()
-                            .show()
-                }
-
-                holder.btn3.setOnClickListener {
-                    ListPopWindow.Builder(it)
-                            .addMenuItem(R.drawable.ic_ignore, "item1") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .addMenuItem(R.drawable.ic_error_1, "item2") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .addMenuItem(R.drawable.ic_waring, "item3") { Toast.makeText(this@MainActivity, "ttt", Toast.LENGTH_SHORT).show() }
-                            .withStyle(styleIes)
-                            .build()
-                            .show()
-                }
+                holder.btn1.setOnClickListener(onClick)
+                holder.btn2.setOnClickListener(onClick)
+                holder.btn3.setOnClickListener(onClick)
             }
 
             override fun getItemCount(): Int = 100

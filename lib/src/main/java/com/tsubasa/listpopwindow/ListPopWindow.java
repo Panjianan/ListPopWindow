@@ -146,30 +146,39 @@ public class ListPopWindow {
             this.attachView = attachView;
             this.context = attachView.getContext();
 
-            this.backgroundColor = ContextCompat.getColor(context, R.color.pop_window_background_color);
-            this.backgroundPressedColor = 0xFFEEEEEE;
-            this.itemWidth = ScreenExtKt.dp2px(context, 300);
-            this.itemHeight = ScreenExtKt.dp2px(context, 100);
-            this.reversalOffY = (int) (ScreenExtKt.getScreenHeight(context) * 0.8);
-            this.cornerRadius = ScreenExtKt.dp2px(context, 5);
-            this.itemPaddingLeft = this.itemPaddingRight = ScreenExtKt.dp2px(context, 30);
-            this.textSize = ScreenExtKt.dp2px(context, 34);
-            this.textColor = Color.BLACK;
-            this.itemGravity = Gravity.CENTER_VERTICAL;
-            this.textImageMargin = ScreenExtKt.dp2px(context, 10);
-            this.iconSize = ScreenExtKt.dp2px(context, 30);
-            this.focus = true;
-            this.popOffY = ScreenExtKt.dp2px(context, 10);
-            this.isOutside = true;
-            this.bgShade = true;
-            this.popGravity = CENTER;
+            arrowContentOffX = 0;
+            cornerRadius = ScreenExtKt.dp2px(context, 5);
+            iconSize = ScreenExtKt.dp2px(context, 20);
+            itemHeight = ScreenExtKt.dp2px(context, 30);
+            itemWidth = ScreenExtKt.dp2px(context, 120);
+            itemPaddingLeft = ScreenExtKt.dp2px(context, 15);
+            itemPaddingRight = ScreenExtKt.dp2px(context, 15);
+            reversalOffY = (int) (0.8f * ScreenExtKt.getScreenHeight(context));
+            marginLeft = ScreenExtKt.dp2px(context, 15);
+            marginRight = ScreenExtKt.dp2px(context, 15);
+            textSize = ScreenExtKt.sp2px(context, 12);
+            textImageMargin = ScreenExtKt.dp2px(context, 10);
+
+            backgroundColor = Color.WHITE;
+            backgroundPressedColor = 0xffaaaaaa;
+            textColor = 0xff333333;
+
+            bgShade = true;
+            focus = true;
+            isOutside = true;
+            popGravity = CENTER;
+            itemGravity = Gravity.CENTER_VERTICAL;
+            mDividerColor = ContextCompat.getColor(context, R.color.list_item_divider_color);
+            mDividerMarginLeft = ScreenExtKt.dp2px(context, 15);
+            mDividerMarginRight = ScreenExtKt.dp2px(context, 0);
+            mDividerHeight = ScreenExtKt.dp2px(context, 1);
+            mPopIconTintColor = 0xff777777;
         }
 
         public Builder withStyle(@StyleRes int styleId) {
             if (styleId != 0) {
                 ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, styleId);
                 TypedArray typedArray = themeWrapper.obtainStyledAttributes(new int[]{
-                        R.attr.popUnitAutoAdaptive,
                         R.attr.popArrowContentOffX,
                         R.attr.popCornerRadius,
                         R.attr.popIconSize,
@@ -198,36 +207,36 @@ public class ListPopWindow {
                         R.attr.popDividerHeight,
                         R.attr.popIconTintColor,
                 });
-                boolean autoAdaptive = typedArray.getBoolean(0, true);
-                arrowContentOffX = coverDimen2Px(typedArray, 1, 0, autoAdaptive);
-                cornerRadius = coverDimen2Px(typedArray, 2, ScreenExtKt.dp2px(context, 5), autoAdaptive);
-                iconSize = coverDimen2Px(typedArray, 3, ScreenExtKt.dp2px(context, 40), autoAdaptive);
-                itemHeight = coverDimen2Px(typedArray, 4, ScreenExtKt.dp2px(context, 100), autoAdaptive);
-                itemWidth = coverDimen2Px(typedArray, 5, ScreenExtKt.dp2px(context, 300), autoAdaptive);
-                itemPaddingLeft = coverDimen2Px(typedArray, 6, ScreenExtKt.dp2px(context, 30), autoAdaptive);
-                itemPaddingRight = coverDimen2Px(typedArray, 7, ScreenExtKt.dp2px(context, 30), autoAdaptive);
-                popOffX = coverDimen2Px(typedArray, 8, 0, autoAdaptive);
-                popOffY = coverDimen2Px(typedArray, 9, 0, autoAdaptive);
-                reversalOffY = (int) (typedArray.getFloat(10, 0.8f) * ScreenExtKt.getScreenHeight(context));
-                marginLeft = coverDimen2Px(typedArray, 11, ScreenExtKt.dp2px(context, 30), autoAdaptive);
-                marginRight = coverDimen2Px(typedArray, 12, ScreenExtKt.dp2px(context, 0), autoAdaptive);
-                textSize = coverDimen2Px(typedArray, 13, ScreenExtKt.dp2px(context, 34), autoAdaptive);
-                textImageMargin = coverDimen2Px(typedArray, 14, ScreenExtKt.dp2px(context, 20), autoAdaptive);
+                int index = 0;
+                arrowContentOffX = coverDimen2Px(typedArray, index++, 0);
+                cornerRadius = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 5));
+                iconSize = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 20));
+                itemHeight = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 30));
+                itemWidth = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 120));
+                itemPaddingLeft = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 15));
+                itemPaddingRight = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 15));
+                popOffX = coverDimen2Px(typedArray, index++, 0);
+                popOffY = coverDimen2Px(typedArray, index++, 0);
+                reversalOffY = (int) (typedArray.getFloat(index++, 0.8f) * ScreenExtKt.getScreenHeight(context));
+                marginLeft = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 15));
+                marginRight = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 15));
+                textSize = coverDimen2Px(typedArray, index++, ScreenExtKt.sp2px(context, 24));
+                textImageMargin = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 10));
 
-                backgroundColor = typedArray.getColor(15, Color.WHITE);
-                backgroundPressedColor = typedArray.getColor(16, 0xffaaaaaa);
-                textColor = typedArray.getColor(17, 0xff333333);
+                backgroundColor = typedArray.getColor(index++, Color.WHITE);
+                backgroundPressedColor = typedArray.getColor(index++, 0xffaaaaaa);
+                textColor = typedArray.getColor(index++, 0xff333333);
 
-                bgShade = typedArray.getBoolean(18, true);
-                focus = typedArray.getBoolean(19, true);
-                isOutside = typedArray.getBoolean(20, true);
-                popGravity = typedArray.getInt(21, CENTER);
-                itemGravity = typedArray.getInt(22, Gravity.CENTER_VERTICAL);
-                mDividerColor = typedArray.getColor(23, ContextCompat.getColor(context, R.color.list_item_divider_color));
-                mDividerMarginLeft = coverDimen2Px(typedArray, 24, ScreenExtKt.dp2px(context, 20), autoAdaptive);
-                mDividerMarginRight = coverDimen2Px(typedArray, 25, ScreenExtKt.dp2px(context, 0), autoAdaptive);
-                mDividerHeight = coverDimen2Px(typedArray, 26, ScreenExtKt.dp2px(context, 1), autoAdaptive);
-                mPopIconTintColor = typedArray.getColor(27, Color.WHITE);
+                bgShade = typedArray.getBoolean(index++, true);
+                focus = typedArray.getBoolean(index++, true);
+                isOutside = typedArray.getBoolean(index++, true);
+                popGravity = typedArray.getInt(index++, CENTER);
+                itemGravity = typedArray.getInt(index++, Gravity.CENTER_VERTICAL);
+                mDividerColor = typedArray.getColor(index++, ContextCompat.getColor(context, R.color.list_item_divider_color));
+                mDividerMarginLeft = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 15));
+                mDividerMarginRight = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 0));
+                mDividerHeight = coverDimen2Px(typedArray, index++, ScreenExtKt.dp2px(context, 1));
+                mPopIconTintColor = typedArray.getColor(index++, Color.WHITE);
                 typedArray.recycle();
             }
 
@@ -445,14 +454,10 @@ public class ListPopWindow {
             return this;
         }
 
-        private int coverDimen2Px(TypedArray typedArray, int attrId, int defaultVal, boolean autoAdaptive) {
+        private int coverDimen2Px(TypedArray typedArray, int attrId, int defaultVal) {
             String dimen = typedArray.getString(attrId);
             int dimensionPixelOffset = typedArray.getDimensionPixelOffset(attrId, defaultVal);
-            if (!autoAdaptive || !dimen.endsWith("px")) {
-                return dimensionPixelOffset;
-            } else {
-                return ScreenExtKt.dp2px(context, dimensionPixelOffset);
-            }
+            return dimensionPixelOffset;
         }
 
         /**

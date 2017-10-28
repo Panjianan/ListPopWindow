@@ -14,13 +14,15 @@
             android:id="@+id/btn_style1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="style1" />
+            android:text="default"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn_style2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="style2" />
+            android:text="style2"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
